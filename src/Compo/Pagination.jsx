@@ -10,29 +10,28 @@ export default function Pagination({ filteredProductes }) {
   return (
     <>
       {filteredProductes.length === 0 ? (
-        <p>No Products Found</p>
+        <p className="no-products">No Products Found</p>
       ) : (
         <>
-          {currProducts.map((product) => (
-            <div key={product.id}>
-                <hr />
-              <h2>{product.title}</h2>
-              <p>{product.description}</p>
-              <h4>Category: {product.category}</h4>
-              <p>Price: ${product.price}</p>
-              <hr />
-            </div>
-          ))}
-          <div>
+          <div className="products-container">
+            {currProducts.map((product) => (
+              <div key={product.id} className="product-card">
+                <h2>{product.title}</h2>
+                <p>{product.description}</p>
+                <h4>Category: {product.category}</h4>
+                <p>Price: ${product.price}</p>
+              </div>
+            ))}
+          </div>
+          <div className="pagination-controls">
             <button
               disabled={currPage === 1}
               onClick={() => setCurrPage(currPage - 1)}
             >
               Previous
             </button>
-            <span>
-              {" "}
-              Page {currPage} of {totalPages}{" "}
+            <span className="page-indicator">
+              Page {currPage} of {totalPages}
             </span>
             <button
               disabled={currPage === totalPages}
