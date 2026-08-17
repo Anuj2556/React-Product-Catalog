@@ -23,30 +23,30 @@ function App() {
 
   
   return (
-    <>
-      <input
-        type="text"
-        value={search}
-        onChange={(e) => setSearch(e.target.value)}
-        placeholder="Enter to Search the product"
-      />
-      <select onChange={(e)=>setLowFirst(e.target.value)}>
-        <option value={true}>Low To High</option>
-        <option value={false}>High To Low</option>
-      </select>
+    <div className="app-container">
+      <div className="filter-section">
+        <input
+          type="text"
+          value={search}
+          onChange={(e) => setSearch(e.target.value)}
+          placeholder="Enter to Search the product"
+        />
+        <select onChange={(e)=>setLowFirst(e.target.value)}>
+          <option value={true}>Low To High</option>
+          <option value={false}>High To Low</option>
+        </select>
 
-      <select onChange={(e)=>{setCategory(e.target.value)}}>
-        <option value="all">All</option>
-        <option value="beauty">beauty</option>
-        <option value="fragrances">fragrances</option>
-        <option value="furniture">furniture</option>
-        <option value="groceries">groceries</option>
-      </select>
-
+        <select onChange={(e)=>{setCategory(e.target.value)}}>
+          <option value="all">All</option>
+          <option value="beauty">beauty</option>
+          <option value="fragrances">fragrances</option>
+          <option value="furniture">furniture</option>
+          <option value="groceries">groceries</option>
+        </select>
+      </div>
 
       <Pagination filteredProductes={filteredProductes} />
-
-    </>
+    </div>
   );
 }
 
