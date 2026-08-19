@@ -14,9 +14,6 @@ export const ProductList = ({ products }) => {
     } else {
       nextParams.delete(name);
     }
-    if (name !== "page") {
-      nextParams.set("page", "1");
-    }
     setParams(nextParams);
   };
   let filteredProductes = products
