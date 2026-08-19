@@ -12,6 +12,8 @@ A responsive React product dashboard with list and detail routes, URL-backed fil
 - **Query-Param Filters**: Search, category, and sort values are preserved in the URL
 - **Responsive Design**: Works seamlessly on desktop, tablet, and mobile devices
 - **Real-time Data**: Fetches product data from DummyJSON API
+- **Reusable API Client**: Centralizes Axios configuration and request retry behavior
+- **Request States**: Shows loading and error states with a retry action
 
 ## Tech Stack
 
@@ -29,9 +31,11 @@ src/
 ├── App.css              # Application styles
 ├── main.jsx             # Entry point and BrowserRouter setup
 └── Compo/
+    ├── client.jsx          # Shared Axios client and retry helper
     ├── Pagination.jsx     # Product pagination and display
     ├── ProductDetail.jsx   # Individual product detail view
     ├── ProductList.jsx     # List view and query-param filters
+    ├── productsApi.jsx     # Product API functions
     └── useFetchData.jsx    # Custom hook for fetching product data
 ```
 
@@ -83,6 +87,15 @@ Example:
 
 Products are fetched from [DummyJSON API](https://dummyjson.com/products)
 
+The API layer is split into reusable responsibilities:
+
+- `client.jsx` creates the shared Axios client with a base URL and timeout.
+- `requestWithRetry` retries network failures and server errors up to three times.
+- `productsApi.jsx` exposes product-specific API functions such as `getProducts`.
+- `useFetchData.jsx` manages the request lifecycle and returns `products`, `loading`, `error`, and `retry` values.
+
+The application displays a loading message while the request is in progress. If the request fails after retries, it displays an error message and a **Retry** button.
+
 ## Component Details
 
 ### App.jsx
@@ -103,7 +116,7 @@ Displays products in paginated format:
 ### useFetchData.jsx
 Custom React hook:
 - Fetches products from DummyJSON API on mount
-- Returns array of products
+- Returns products, loading state, error state, and a retry function
 
 ## Possible Enhancements
 
