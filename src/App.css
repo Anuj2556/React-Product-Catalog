@@ -139,6 +139,81 @@ option {
   flex-direction: column;
 }
 
+.product-card-link {
+  color: inherit;
+  text-decoration: none;
+}
+
+/* Product detail page */
+.product-detail {
+  max-width: 1000px;
+  margin: 20px auto;
+  padding: 28px;
+  background-color: var(--card-bg);
+  border: 1px solid var(--border-color);
+  border-radius: var(--border-radius);
+  box-shadow: var(--shadow-md);
+}
+
+.back-link {
+  display: inline-block;
+  margin-bottom: 28px;
+  color: var(--primary-color);
+  font-weight: 600;
+  text-decoration: none;
+}
+
+.back-link:hover {
+  color: var(--primary-hover);
+  text-decoration: underline;
+}
+
+.product-detail-content {
+  display: grid;
+  grid-template-columns: minmax(260px, 380px) 1fr;
+  gap: 40px;
+  align-items: center;
+}
+
+.product-detail-image {
+  width: 100%;
+  max-height: 380px;
+  object-fit: contain;
+  border-radius: var(--border-radius);
+  background-color: var(--background-color);
+}
+
+.product-detail-info h1 {
+  margin-bottom: 16px;
+  color: var(--text-primary);
+  font-size: clamp(28px, 4vw, 42px);
+  line-height: 1.15;
+}
+
+.product-detail-info > p {
+  margin-bottom: 24px;
+  color: var(--text-secondary);
+}
+
+.product-detail-meta {
+  display: grid;
+  gap: 10px;
+  margin-bottom: 24px;
+  padding: 16px;
+  border-left: 4px solid var(--primary-color);
+  background-color: var(--background-color);
+}
+
+.product-detail-meta p {
+  color: var(--text-secondary);
+}
+
+.product-detail-price {
+  display: block;
+  color: var(--accent-color);
+  font-size: 30px;
+}
+
 .product-card:hover {
   box-shadow: var(--shadow-lg);
   transform: translateY(-4px);
@@ -277,6 +352,19 @@ button:disabled {
     padding: 15px;
   }
 
+  .product-detail {
+    padding: 20px;
+  }
+
+  .product-detail-content {
+    grid-template-columns: 1fr;
+    gap: 24px;
+  }
+
+  .product-detail-image {
+    max-height: 280px;
+  }
+
   .pagination-controls {
     flex-direction: column;
     gap: 12px;
@@ -315,6 +403,19 @@ button:disabled {
 
   .product-card h2 {
     font-size: 16px;
+  }
+
+  .product-detail {
+    margin: 10px auto;
+    padding: 15px;
+  }
+
+  .product-detail-info h1 {
+    font-size: 28px;
+  }
+
+  .product-detail-price {
+    font-size: 26px;
   }
 
   .product-card p:last-of-type {

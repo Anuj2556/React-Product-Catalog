@@ -6,7 +6,15 @@ import { Routes, Route, Navigate } from "react-router-dom";
 
 
 function App() {
-  const products = useFetchData();
+  const {products,error,loading,retry} = useFetchData();
+
+  if(loading) return <p>Loading Products ...🔃</p>
+
+  if(error) {
+  return <div>
+    <p>{error}</p>
+    <button onClick={retry}>Retry</button>
+  </div>}
 
   return (
     <Routes>
