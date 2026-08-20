@@ -1,0 +1,21 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Redirecting...</title>
+    <script>
+      // Redirect to index.html for GitHub Pages routing
+      const path = window.location.pathname;
+      const segments = path.split('/').filter(s => s);
+      
+      // Get repo name (first segment after domain)
+      const repoName = segments[0] === 'product-list-react' ? '/product-list-react' : '';
+      
+      // Redirect to index.html with the requested path
+      sessionStorage.redirect = path.replace(repoName, '');
+      window.location.href = repoName + '/index.html';
+    </script>
+  </head>
+  <body></body>
+</html>
