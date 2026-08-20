@@ -1,3 +1,6 @@
+/* Import Poppins Font */
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap");
+
 /* ============================================
    PRODUCT LIST REACT - STYLES
    Modern & Responsive Design
@@ -122,9 +125,10 @@ option {
 /* Products Container */
 .products-container {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
   gap: 25px;
   margin-bottom: 40px;
+  width: 100%;
 }
 
 /* Product Card */

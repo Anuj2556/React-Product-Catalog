@@ -14,8 +14,8 @@ export const ProductDetail = ({ products }) => {
       <div className="product-detail-content">
         <img className="product-detail-image" src={product.thumbnail} alt={product.title} />
         <div className="product-detail-info">
-      <h1>{product.title}</h1>
-      <p>{product.description}</p>
+          <h1>{product.title}</h1>
+          <p>{product.description}</p>
           <div className="product-detail-meta">
             <p>Category: {product.category}</p>
             <p>Rating: {product.rating}</p>

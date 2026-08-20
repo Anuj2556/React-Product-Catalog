@@ -26,10 +26,10 @@ export const ProductList = ({ products }) => {
     );
 
   return (
-    <>
+    <div className="app-container">
       <div className="filter-section">
         <input
-         type="text"
+          type="text"
           value={search}
           onChange={(e) => updateFilter("search", e.target.value)}
           placeholder="Enter to Search the product"
@@ -48,9 +48,9 @@ export const ProductList = ({ products }) => {
           <option value="furniture">furniture</option>
           <option value="groceries">groceries</option>
         </select>
-
-        <Pagination filteredProductes={filteredProductes} />
       </div>
-    </>
+
+      <Pagination filteredProductes={filteredProductes} />
+    </div>
   );
 };
